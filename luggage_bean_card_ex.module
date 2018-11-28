@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ * Code for the luggage_bean_card_ex feature.
+ */
+
+include_once 'luggage_bean_card_ex.features.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function luggage_bean_card_ex_theme($existing, $type, $theme, $path) {
+  $themes['bean__card_ex'] = array(
+    'template' => 'bean--card-ex',
+    'path' => drupal_get_path('module', 'luggage_bean_card_ex') . '/templates'
+  );
+
+  return $themes;
+}
+
+/*
+ * Implements hook_preprocess_html.
+ */
+function luggage_bean_card_ex_preprocess_html(&$vars) {
+  drupal_add_css(drupal_get_path('module', 'luggage_bean_card_ex') . '/css/luggage_bean_card_ex.css', array('group' => 200));
+}
